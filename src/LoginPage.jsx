@@ -25,6 +25,12 @@ export default function LoginPage({ onLogin }) {
     onLogin();
   }
 
+  function fillDemoCredentials() {
+    setEmail(DEMO_EMAIL);
+    setPassword(DEMO_PASSWORD);
+    setError('');
+  }
+
   return (
     <main className="login-page">
       <section className="login-panel" aria-labelledby="login-title">
@@ -40,6 +46,9 @@ export default function LoginPage({ onLogin }) {
         </div>
 
         <form className="login-form" onSubmit={handleSubmit} noValidate>
+          <button className="button button-quiet autofill-button" onClick={fillDemoCredentials} type="button">
+            Fill demo account
+          </button>
           <label htmlFor="email">Email address</label>
           <input
             autoComplete="username"
